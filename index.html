@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHMS Science Olympiad - Regionals Schedule 2026</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        .header { 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
+            color: white; padding: 20px; text-align: center; 
+        }
+        .header h1 { font-size: 1.5em; margin-bottom: 10px; }
+        .header p { font-size: 0.9em; opacity: 0.9; }
+        .event-info { background: #fff3cd; padding: 15px; margin: 10px; border-radius: 10px; border-left: 4px solid #ffc107; }
+        .event-info h3 { color: #856404; margin-bottom: 8px; font-size: 1em; }
+        .event-info p { font-size: 0.85em; color: #856404; line-height: 1.4; }
+        
+        .search-section { padding: 20px; background: #f8f9fa; }
+        .search-box { 
+            width: 100%; padding: 15px; border: 2px solid #ddd; 
+            border-radius: 10px; font-size: 16px; margin-bottom: 15px;
+        }
+        .search-box:focus { outline: none; border-color: #667eea; }
+        
+        .tabs { display: flex; overflow-x: auto; background: #e9ecef; }
+        .tab { 
+            flex: 1; padding: 15px 10px; text-align: center; 
+            cursor: pointer; border: none; background: none; 
+            font-size: 14px; font-weight: 600; color: #495057;
+            white-space: nowrap; transition: all 0.3s;
+        }
+        .tab.active { background: white; color: #667eea; border-top: 3px solid #667eea; }
+        .tab-content { display: none; padding: 15px; }
+        .tab-content.active { display: block; }
+        
+        .team-section { margin-bottom: 30px; }
+        .team-header { 
+            background: #2a5298; color: white; padding: 12px; 
+            border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; font-weight: 600;
+        }
+        .team-header.green { background: #28a745; }
+        .team-header.maroon { background: #d63384; }
+        .team-header.black { background: #212529; }
+        
+        .event-card { 
+            background: white; border: 1px solid #dee2e6; 
+            border-radius: 10px; margin-bottom: 15px; overflow: hidden;
+        }
+        .event-card-header { 
+            background: #f8f9fa; padding: 12px; font-weight: 600; 
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .event-room { background: #667eea; color: white; padding: 4px 10px; 
+                     border-radius: 20px; font-size: 0.85em; }
+        .event-details { padding: 12px; }
+        .session { 
+            display: flex; margin-bottom: 10px; padding: 10px; 
+            background: #f8f9fa; border-radius: 8px; 
+        }
+        .session-time { 
+            font-weight: 600; color: #667eea; min-width: 100px; 
+            font-size: 0.9em; 
+        }
+        .session-students { flex: 1; }
+        .student-name { 
+            display: inline-block; background: #e7f1ff; color: #0d6efd; 
+            padding: 3px 10px; margin: 2px; border-radius: 15px; font-size: 0.85em;
+        }
+        
+        .student-result { 
+            background: white; padding: 15px; margin: 10px 0; 
+            border-radius: 10px; border-left: 4px solid #667eea;
+        }
+        .student-result h3 { color: #667eea; margin-bottom: 10px; }
+        .student-event { 
+            background: #f8f9fa; padding: 10px; margin: 5px 0; 
+            border-radius: 5px; font-size: 0.9em; 
+        }
+        
+        .roster-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+        .roster-table th { background: #495057; color: white; padding: 10px; text-align: left; }
+        .roster-table td { padding: 8px; border-bottom: 1px solid #dee2e6; }
+        .roster-table tr:nth-child(even) { background: #f8f9fa; }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.2em; }
+            .tab { padding: 12px 8px; font-size: 13px; }
+            .session { flex-direction: column; }
+            .session-time { margin-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 SHMS Science Olympiad</h1>
+            <p>Regional Tournament 2026 - Saturday, February 7th</p>
+            <p>📍 Centreville High School | 🕐 Check-in: 8:15 AM (Room 209)</p>
+        </div>
+        
+        <div class="event-info">
+            <h3>📋 Important Information</h3>
+            <p><strong>Impound:</strong> If your event has impound, take your device to the testing room after check-in. Must be turned in by 8:50 AM.</p>
+            <p><strong>Homeroom:</strong> Remain with the team unless going to an event. Check-in with a coach before leaving.</p>
+            <p><strong>Awards Ceremony:</strong> 6:00 PM in the Auditorium (we'll sit together as a school!)</p>
+        </div>
+        
+        <div class="search-section">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search by student name..." onkeyup="searchStudent()">
+        </div>
+        
+        <div id="searchResults"></div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('green')">🟢 Green Team</button>
+            <button class="tab" onclick="showTab('maroon')">🟣 Maroon Team</button>
+            <button class="tab" onclick="showTab('black')">⚫ Black Team</button>
+            <button class="tab" onclick="showTab('roster')">📋 Roster</button>
+        </div>
+        
+        <div id="green" class="tab-content active">
+            <div class="team-section">
+                <div class="team-header green">🟢 Green Team (B29)</div>
+                <div id="green-events"></div>
+            </div>
+        </div>
+        
+        <div id="maroon" class="tab-content">
+            <div class="team-section">
+                <div class="team-header maroon">🟣 Maroon Team (B30)</div>
+                <div id="maroon-events"></div>
+            </div>
+        </div>
+        
+        <div id="black" class="tab-content">
+            <div class="team-section">
+                <div class="team-header black">⚫ Black Team (B31)</div>
+                <div id="black-events"></div>
+            </div>
+        </div>
+        
+        <div id="roster" class="tab-content">
+            <div class="team-section">
+                <div class="team-header">📋 Full Team Roster</div>
+                <div id="roster-content"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Team data with events and students
+        const teams = {
+            green: {
+                name: "Green Team",
+                number: "B29",
+                color: "green",
+                events: [
+                    { name: "Codebusters", room: "312", sessions: [{time: "Session 1 (9:00-9:55)", students: ["Arin", "Niharika", "Viraj"]}] },
+                    { name: "Disease Detectives", room: "308", sessions: [{time: "Session 1 (9:00-9:55)", students: ["Rishaan", "Tanvi"]}] },
+                    { name: "Remote Sensing", room: "319", sessions: [{time: "Session 1 (9:00-9:55)", students: ["Ivanna", "Raghavendra"]}] },
+                    { name: "Machines (Test)", room: "324", sessions: [{time: "Session 2 (10:05-11:00)", students: ["Rishaan", "Shivam"]}] },
+                    { name: "Circuit Lab", room: "320", sessions: [{time: "Session 3 (11:10-12:05)", students: ["Sahana", "Viraj"]}] },
+                    { name: "Dynamic Planet", room: "313", sessions: [{time: "Session 3 (11:10-12:05)", students: ["Ivanna", "Shivam"]}] },
+                    { name: "Water Quality", room: "317", sessions: [{time: "Session 3 (11:10-12:05)", students: ["Henry", "Rushil"]}] },
+                    { name: "Heredity", room: "302", sessions: [{time: "Session 4 (12:15-1:10)", students: ["Khanak", "Shivam"]}] },
+                    { name: "Potions & Poisons", room: "306", sessions: [{time: "Session 4 (12:15-1:10)", students: ["Abhyuday", "Aditi B."]}] },
+                    { name: "Rocks and Minerals", room: "316", sessions: [{time: "Session 4 (12:15-1:10)", students: ["Rishaan", "Rushil"]}] },
+                    { name: "Experimental Design", room: "309", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Henry", "Khanak", "Raghavendra"]}] },
+                    { name: "Solar System", room: "327", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Niharika", "Sahana"]}] },
+                    { name: "Anatomy & Physiology", room: "301", sessions: [{time: "Session 6 (2:50-3:45)", students: ["Aditi B.", "Rushil"]}] },
+                    { name: "Crime Busters", room: "305", sessions: [{time: "Session 6 (2:50-3:45)", students: ["Moshika", "Tanvi"]}] },
+                    { name: "Boomilever", room: "Auditorium", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Ivanna", "Moshika"]}] },
+                    { name: "Hovercraft **", room: "1st Floor Atrium", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Abhyuday", "Arin"]}] },
+                    { name: "Machines (Device) **", room: "Impound: 325 Event: 322", sessions: [{time: "Session 6 (2:50-3:45)", students: ["Rishaan", "Shivam"]}] },
+                    { name: "Scrambler **", room: "Cafeteria", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Henry", "Viraj"]}] }
+                ],
+                students: ["Arin", "Niharika", "Viraj", "Rishaan", "Tanvi", "Ivanna", "Raghavendra", "Shivam", "Sahana", "Henry", "Rushil", "Khanak", "Abhyuday", "Aditi B.", "Moshika"]
+            },
+            maroon: {
+                name: "Maroon Team",
+                number: "B30",
+                color: "maroon",
+                events: [
+                    { name: "Codebusters", room: "312", sessions: [{time: "Session 1 (9:00-9:55)", students: ["Avani", "Meha", "Santosh"]}] },
+                    { name: "Disease Detectives", room: "308", sessions: [{time: "Session 1 (9:00-9:55)", students: ["Adan", "Samvika"]}] },
+                    { name: "Remote Sensing", room: "319", sessions: [{time: "Session 1 (9:00-9:55)", students: ["Aditi Batchu", "Anya W."]}] },
+                    { name: "Machines (Test)", room: "324", sessions: [{time: "Session 2 (10:05-11:00)", students: ["Avani", "Santosh"]}] },
+                    { name: "Circuit Lab", room: "320", sessions: [{time: "Session 3 (11:10-12:05)", students: ["Santosh", "Rohan"]}] },
+                    { name: "Dynamic Planet", room: "313", sessions: [{time: "Session 3 (11:10-12:05)", students: ["Sanjeev", "Charvitha"]}] },
+                    { name: "Water Quality", room: "317", sessions: [{time: "Session 3 (11:10-12:05)", students: ["Aaliya", "Meha"]}] },
+                    { name: "Heredity", room: "302", sessions: [{time: "Session 4 (12:15-1:10)", students: ["Khloe", "Ahaana"]}] },
+                    { name: "Potions & Poisons", room: "306", sessions: [{time: "Session 4 (12:15-1:10)", students: ["Samvika", "Charvitha"]}] },
+                    { name: "Rocks and Minerals", room: "316", sessions: [{time: "Session 4 (12:15-1:10)", students: ["Aanya", "Adan"]}] },
+                    { name: "Experimental Design", room: "309", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Anya W.", "Anvi G.", "Aaliya"]}] },
+                    { name: "Solar System", room: "327", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Meha", "Ahaana"]}] },
+                    { name: "Anatomy & Physiology", room: "301", sessions: [{time: "Session 6 (2:50-3:45)", students: ["Aanya", "Khloe"]}] },
+                    { name: "Crime Busters", room: "305", sessions: [{time: "Session 6 (2:50-3:45)", students: ["Aditi Batchu", "Rohan"]}] },
+                    { name: "Boomilever", room: "Auditorium", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Avani", "Aaliya"]}] },
+                    { name: "Hovercraft **", room: "1st Floor Atrium", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Sanjeev", "Adan"]}] },
+                    { name: "Machines (Device) **", room: "Impound: 325 Event: 322", sessions: [{time: "Session 6 (2:50-3:45)", students: ["Santosh", "Rohan"]}] },
+                    { name: "Scrambler **", room: "Cafeteria", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Ahaana", "Anvi G."]}] }
+                ],
+                students: ["Avani", "Meha", "Santosh", "Adan", "Samvika", "Aditi Batchu", "Anya W.", "Rohan", "Sanjeev", "Charvitha", "Aaliya", "Khloe", "Ahaana", "Aanya", "Anvi G."]
+            },
+            black: {
+                name: "Black Team",
+                number: "B31",
+                color: "black",
+                events: [
+                    { name: "Codebusters", room: "312", sessions: [{time: "Session 1 (9:00-9:55)", students: ["Vihaan", "Janya", "Manasvi"]}] },
+                    { name: "Disease Detectives", room: "308", sessions: [{time: "Session 1 (9:00-9:55)", students: ["Adhya", "Yaalini"]}] },
+                    { name: "Remote Sensing", room: "319", sessions: [{time: "Session 1 (9:00-9:55)", students: ["Aleena", "Kavin"]}] },
+                    { name: "Machines (Test)", room: "324", sessions: [{time: "Session 2 (10:05-11:00)", students: ["Manasvi", "Anvi K."]}] },
+                    { name: "Circuit Lab", room: "320", sessions: [{time: "Session 3 (11:10-12:05)", students: ["Veer", "Tanay"]}] },
+                    { name: "Dynamic Planet", room: "313", sessions: [{time: "Session 3 (11:10-12:05)", students: ["Adhya", "Janya"]}] },
+                    { name: "Water Quality", room: "317", sessions: [{time: "Session 3 (11:10-12:05)", students: ["Divyansha", "Yaalini"]}] },
+                    { name: "Heredity", room: "302", sessions: [{time: "Session 4 (12:15-1:10)", students: ["Deekshiitha", "Kavin"]}] },
+                    { name: "Potions & Poisons", room: "306", sessions: [{time: "Session 4 (12:15-1:10)", students: ["Divyansha"]}] },
+                    { name: "Rocks and Minerals", room: "316", sessions: [{time: "Session 4 (12:15-1:10)", students: ["Yaalini", "Vihaan"]}] },
+                    { name: "Experimental Design", room: "309", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Veer", "Vaishnavi", "Deekshiitha"]}] },
+                    { name: "Solar System", room: "327", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Tanay", "Aleena"]}] },
+                    { name: "Anatomy & Physiology", room: "301", sessions: [{time: "Session 6 (2:50-3:45)", students: ["Vaishnavi", "Manasvi"]}] },
+                    { name: "Crime Busters", room: "305", sessions: [{time: "Session 6 (2:50-3:45)", students: ["Kavin", "Nikhil"]}] },
+                    { name: "Boomilever", room: "Auditorium", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Adhya", "Divyansha"]}] },
+                    { name: "Hovercraft **", room: "1st Floor Atrium", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Nikhil", "Janya"]}] },
+                    { name: "Machines (Device) **", room: "Impound: 325 Event: 322", sessions: [{time: "Session 6 (2:50-3:45)", students: ["Manasvi", "Anvi K."]}] },
+                    { name: "Scrambler **", room: "Cafeteria", sessions: [{time: "Session 5 (1:45-2:40)", students: ["Veer", "Deekshiitha"]}] }
+                ],
+                students: ["Vihaan", "Janya", "Manasvi", "Adhya", "Yaalini", "Aleena", "Kavin", "Anvi K.", "Veer", "Tanay", "Divyansha", "Deekshiitha", "Vaishnavi", "Nikhil"]
+            }
+        };
+        
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+        
+        function renderEvents(teamKey) {
+            const team = teams[teamKey];
+            const container = document.getElementById(`${teamKey}-events`);
+            container.innerHTML = team.events.map(event => `
+                <div class="event-card">
+                    <div class="event-card-header">
+                        <span>${event.name}</span>
+                        <span class="event-room">📍 ${event.room}</span>
+                    </div>
+                    <div class="event-details">
+                        ${event.sessions.map(session => `
+                            <div class="session">
+                                <div class="session-time">🕐 ${session.time}</div>
+                                <div class="session-students">
+                                    ${session.students.map(s => `<span class="student-name">${s}</span>`).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function searchStudent() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resultsDiv = document.getElementById('searchResults');
+            
+            if (!query) {
+                resultsDiv.innerHTML = '';
+                return;
+            }
+            
+            let results = [];
+            
+            Object.keys(teams).forEach(teamKey => {
+                const team = teams[teamKey];
+                team.events.forEach(event => {
+                    event.sessions.forEach(session => {
+                        session.students.forEach(student => {
+                            if (student.toLowerCase().includes(query)) {
+                                results.push({
+                                    student: student,
+                                    team: team.name,
+                                    teamColor: team.color,
+                                    event: event.name,
+                                    room: event.room,
+                                    time: session.time
+                                });
+                            }
+                        });
+                    });
+                });
+            });
+            
+            if (results.length > 0) {
+                resultsDiv.innerHTML = `
+                    <div style="padding: 20px; background: #f8f9fa;">
+                        <h3 style="color: #667eea; margin-bottom: 15px;">🔍 Search Results (${results.length})</h3>
+                        ${results.map(r => `
+                            <div class="student-result">
+                                <h3>${r.student} - ${r.team}</h3>
+                                <div class="student-event">
+                                    <strong>${r.event}</strong><br>
+                                    📍 Room: ${r.room} | 🕐 ${r.time}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                resultsDiv.innerHTML = `
+                    <div style="padding: 20px; background: #f8f9fa; text-align: center; color: #6c757d;">
+                        <p>No students found matching "${query}"</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Initialize
+        renderEvents('green');
+        renderEvents('maroon');
+        renderEvents('black');
+        
+        // Render roster
+        const rosterContent = document.getElementById('roster-content');
+        rosterContent.innerHTML = `
+            <table class="roster-table">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span style="color: #28a745; font-weight: 600;">🟢 Green Team</span></td>
+                        <td>${teams.green.students.join(', ')}</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: #d63384; font-weight: 600;">🟣 Maroon Team</span></td>
+                        <td>${teams.maroon.students.join(', ')}</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: #212529; font-weight: 600;">⚫ Black Team</span></td>
+                        <td>${teams.black.students.join(', ')}</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+    </script>
+</body>
+</html>
