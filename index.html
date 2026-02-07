@@ -1,4 +1,4 @@
-### C:\Temp\SO\original_working.html
+### C:\Temp\SO\SHMS SO Schedule 2026-02-07.html
 ```html
 1: 
 2: <!DOCTYPE html>
@@ -104,55 +104,55 @@
 102: <body>
 103:     <div class="container">
 104:         <div class="header">
-105:             <h1>≡ƒÅå SHMS Science Olympiad</h1>
+105:             <h1>🏆 SHMS Science Olympiad</h1>
 106:             <p>Regional Tournament 2026 - Saturday, February 7th</p>
-107:             <p>≡ƒôì Centreville High School | ≡ƒòÉ Check-in: 8:15 AM (Room 209)</p>
+107:             <p>📍 Centreville High School | 🕐 Check-in: 8:15 AM (Room 209)</p>
 108:         </div>
 109:         
 110:         <div class="event-info">
-111:             <h3>≡ƒôï Important Information</h3>
+111:             <h3>📋 Important Information</h3>
 112:             <p><strong>Impound:</strong> If your event has impound, take your device to the testing room after check-in. Must be turned in by 8:50 AM.</p>
 113:             <p><strong>Homeroom:</strong> Remain with the team unless going to an event. Check-in with a coach before leaving.</p>
 114:             <p><strong>Awards Ceremony:</strong> 6:00 PM in the Auditorium (we'll sit together as a school!)</p>
 115:         </div>
 116:         
 117:         <div class="search-section">
-118:             <input type="text" id="searchInput" class="search-box" placeholder="≡ƒöì Search by student name..." onkeyup="searchStudent()">
+118:             <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search by student name..." onkeyup="searchStudent()">
 119:         </div>
 120:         
 121:         <div id="searchResults"></div>
 122:         
 123:         <div class="tabs">
-124:             <button class="tab active" onclick="showTab('green')">≡ƒƒó Green Team</button>
-125:             <button class="tab" onclick="showTab('maroon')">≡ƒƒú Maroon Team</button>
-126:             <button class="tab" onclick="showTab('black')">ΓÜ½ Black Team</button>
-127:             <button class="tab" onclick="showTab('roster')">≡ƒôï Roster</button>
+124:             <button class="tab active" onclick="showTab('green')">🟢 Green Team</button>
+125:             <button class="tab" onclick="showTab('maroon')">🟣 Maroon Team</button>
+126:             <button class="tab" onclick="showTab('black')">⚫ Black Team</button>
+127:             <button class="tab" onclick="showTab('roster')">📋 Roster</button>
 128:         </div>
 129:         
 130:         <div id="green" class="tab-content active">
 131:             <div class="team-section">
-132:                 <div class="team-header green">≡ƒƒó Green Team (B29)</div>
+132:                 <div class="team-header green">🟢 Green Team (B29)</div>
 133:                 <div id="green-events"></div>
 134:             </div>
 135:         </div>
 136:         
 137:         <div id="maroon" class="tab-content">
 138:             <div class="team-section">
-139:                 <div class="team-header maroon">≡ƒƒú Maroon Team (B30)</div>
+139:                 <div class="team-header maroon">🟣 Maroon Team (B30)</div>
 140:                 <div id="maroon-events"></div>
 141:             </div>
 142:         </div>
 143:         
 144:         <div id="black" class="tab-content">
 145:             <div class="team-section">
-146:                 <div class="team-header black">ΓÜ½ Black Team (B31)</div>
+146:                 <div class="team-header black">⚫ Black Team (B31)</div>
 147:                 <div id="black-events"></div>
 148:             </div>
 149:         </div>
 150:         
 151:         <div id="roster" class="tab-content">
 152:             <div class="team-section">
-153:                 <div class="team-header">≡ƒôï Full Team Roster</div>
+153:                 <div class="team-header">📋 Full Team Roster</div>
 154:                 <div id="roster-content"></div>
 155:             </div>
 156:         </div>
@@ -255,12 +255,12 @@
 253:                 <div class="event-card">
 254:                     <div class="event-card-header">
 255:                         <span>${event.name}</span>
-256:                         <span class="event-room">≡ƒôì ${event.room}</span>
+256:                         <span class="event-room">📍 ${event.room}</span>
 257:                     </div>
 258:                     <div class="event-details">
 259:                         ${event.sessions.map(session => `
 260:                             <div class="session">
-261:                                 <div class="session-time">≡ƒòÉ ${session.time}</div>
+261:                                 <div class="session-time">🕐 ${session.time}</div>
 262:                                 <div class="session-students">
 263:                                     ${session.students.map(s => `<span class="student-name">${s}</span>`).join('')}
 264:                                 </div>
@@ -305,13 +305,13 @@
 303:             if (results.length > 0) {
 304:                 resultsDiv.innerHTML = `
 305:                     <div style="padding: 20px; background: #f8f9fa;">
-306:                         <h3 style="color: #667eea; margin-bottom: 15px;">≡ƒöì Search Results (${results.length})</h3>
+306:                         <h3 style="color: #667eea; margin-bottom: 15px;">🔍 Search Results (${results.length})</h3>
 307:                         ${results.map(r => `
 308:                             <div class="student-result">
 309:                                 <h3>${r.student} - ${r.team}</h3>
 310:                                 <div class="student-event">
 311:                                     <strong>${r.event}</strong><br>
-312:                                     ≡ƒôì Room: ${r.room} | ≡ƒòÉ ${r.time}
+312:                                     📍 Room: ${r.room} | 🕐 ${r.time}
 313:                                 </div>
 314:                             </div>
 315:                         `).join('')}
@@ -343,15 +343,15 @@
 341:                 </thead>
 342:                 <tbody>
 343:                     <tr>
-344:                         <td><span style="color: #28a745; font-weight: 600;">≡ƒƒó Green Team</span></td>
+344:                         <td><span style="color: #28a745; font-weight: 600;">🟢 Green Team</span></td>
 345:                         <td>${teams.green.students.join(', ')}</td>
 346:                     </tr>
 347:                     <tr>
-348:                         <td><span style="color: #d63384; font-weight: 600;">≡ƒƒú Maroon Team</span></td>
+348:                         <td><span style="color: #d63384; font-weight: 600;">🟣 Maroon Team</span></td>
 349:                         <td>${teams.maroon.students.join(', ')}</td>
 350:                     </tr>
 351:                     <tr>
-352:                         <td><span style="color: #212529; font-weight: 600;">ΓÜ½ Black Team</span></td>
+352:                         <td><span style="color: #212529; font-weight: 600;">⚫ Black Team</span></td>
 353:                         <td>${teams.black.students.join(', ')}</td>
 354:                     </tr>
 355:                 </tbody>
